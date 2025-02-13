@@ -16,6 +16,7 @@ Find the configuration options bellow:
 11. Run command ``` make migrate ``` to migrate laravel migrations
 12. Run command ``` make seed ``` to seed laravel databases
 
+
 ## Contact Me
 | Portfolio | Link |
 | ------ | ------ |

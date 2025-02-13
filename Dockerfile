@@ -25,6 +25,6 @@ RUN docker-php-ext-install gettext intl pdo_mysql gd
 RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg && docker-php-ext-install -j$(nproc) gd
 
 # Set ownership and permissions for the /var/www/html directory to www-data
-# RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/html
 # USER www-data
 # EXPOSE 9000

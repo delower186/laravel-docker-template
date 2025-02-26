@@ -15,6 +15,12 @@ Find the configuration options bellow:
 10. Run command ``` make composer-update ``` to install laravel dependencies
 11. Run command ``` make migrate ``` to migrate laravel migrations
 12. Run command ``` make seed ``` to seed laravel databases
+13. Rum command ``` make composer command='composercommand' ``` to run composer commands in docker container, for example ``` make composer command='update' ``` and it will run ``` composer update``` command
+14. Rum command ``` make npm command='npmcommand' ``` to run npm commands in docker container, for example ``` make npm command='--help' ``` and it will run ``` npm --help ``` command
+15. Run command ``` make controller name='controller name' flags='use flags' ``` to create laravel controller in docker container, for example ``` make controller name='AdminController' flags='--resource' ``` will create AdminController.php resource controller
+15. Run command ``` make model name='model name' flags='use flags' ``` to create laravel controller in docker container, for example ``` make controller name='Admin' flags='-m' ``` will create Admin.php model with migration
+15. Run command ``` make migration name='controller name' flags='use flags' ``` to create laravel controller in docker container, for example ``` make migration name='admin_migration' flags='--table=Admin' ``` will create admin_migration migration with table Admin
+15. Run command ``` make artisan command='artisancommand' ``` to run artisan command in docker container, for example ``` make artisan command='migrate' ``` will run ``` php artisan migrate ```
 
 
 ## Contact Me

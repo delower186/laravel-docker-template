@@ -1,7 +1,6 @@
 setup:
 	@make build
 	@make up
-	@make composer-update
 
 setup-from-scratch:
 	@make setup
@@ -21,9 +20,12 @@ install-laravel:
 	docker exec laravel-docker bash -c "cd /var/www/html"
 	docker exec laravel-docker bash -c "composer create-project laravel/laravel ."
 	docker exec laravel-docker bash -c "chown -R www-data:www-data /var/www/html"
+	docker exec laravel-docker bash -c "chmod -R 775 /var/www/html/storage"
+	docker exec laravel-docker bash -c "chmod -R 775 /var/www/html/bootstrap/cache"
+
 
 run-app:
-	powershell -Command "start http://localhost:9000/public"
+	powershell -Command "start http://localhost:8000"
 
 composer-update:
 	docker exec laravel-docker bash -c "composer update"
@@ -38,8 +40,9 @@ seed:
 composer:
 	docker exec laravel-docker bash -c "composer $(command)"
 
+# NPM Command "make npm command='npmcommand'"
 npm:
-	docker exec laravel-docker bash -c "npm $(command)"
+	docker exec npm_runner sh -c "npm $(command)"
 
 
 # Define variables

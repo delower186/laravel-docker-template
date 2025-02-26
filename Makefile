@@ -18,10 +18,13 @@ up:
 
 install-laravel:
 	docker exec laravel-docker bash -c "cd /var/www/html"
-	docker exec laravel-docker bash -c "composer create-project laravel/laravel ."
+	docker exec laravel-docker bash -c "composer create-project laravel/livewire-starter-kit ."
 	docker exec laravel-docker bash -c "chown -R www-data:www-data /var/www/html"
 	docker exec laravel-docker bash -c "chmod -R 775 /var/www/html/storage"
 	docker exec laravel-docker bash -c "chmod -R 775 /var/www/html/bootstrap/cache"
+	docker exec laravel-docker bash -c "chmod u+rw /dev/tty"
+	docker exec npm_runner sh -c "npm install"
+	docker exec npm_runner sh -c "npm run build"
 
 
 run-app:
@@ -43,6 +46,9 @@ composer:
 # NPM Command "make npm command='npmcommand'"
 npm:
 	docker exec npm_runner sh -c "npm $(command)"
+
+clear-npm-cache:
+	docker exec npm_runner sh -c "cache clear --force"
 
 
 # Define variables
